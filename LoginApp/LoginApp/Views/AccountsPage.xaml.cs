@@ -16,7 +16,7 @@ namespace LoginApp.Views
     {
         public List<User> users = new List<User>();
         public LoginService service = new LoginService();
-
+        
         public AccountsPage()
         {
             InitializeComponent();
@@ -36,12 +36,13 @@ namespace LoginApp.Views
         {
             base.OnAppearing();
 
-            string Message = "Seja Bem Vindo";
+            string Message = "Seja Bem Vindo " + MenuManager.currentuser.Name;
+            Title.Text = Message;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushModalAsync( new ContasPage());
         }
-    }
+    } 
 }

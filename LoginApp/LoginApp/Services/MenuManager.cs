@@ -8,6 +8,7 @@ namespace LoginApp.Services
     class MenuManager
     {
         public static User currentuser;
+        public static bool isLogout;
     }
 
 }

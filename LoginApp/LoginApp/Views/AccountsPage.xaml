@@ -1,16 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LoginApp.Views.AccountsPage" BackgroundColor="Purple">
+             x:Class="LoginApp.Views.AccountsPage" BackgroundColor="White"
+             >
     <ContentPage.Content>
+        
         <ScrollView>
 
-            <StackLayout>
 
-                <Label x:Name="Title" Text="{Binding Message}" TextColor="Purple" FontSize="Subtitle"/>
-                <Button Text="Minhas Contas" Clicked="Button_Clicked"/>
+
+            <StackLayout BackgroundColor="White">
+
+                <StackLayout BackgroundColor="#6503A6" Padding="5">
+
+                        <Label x:Name="Title" Text="{Binding Message}" TextColor="White" FontSize="Subtitle" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
+                       
+                        
+                </StackLayout>
+
+
+                <StackLayout Padding="10">
+                    <Label x:Name="Saldo" Text="0,00 R$" FontSize="40" TextColor="Black" FontAttributes="Bold"/>
+                    <Button Text="> Minhas Contas " Clicked="Button_Clicked" HorizontalOptions="End" VerticalOptions="EndAndExpand" TextColor="White" BackgroundColor="#6503A6" CornerRadius="10"/>
+                    
+                </StackLayout>
+
+
+
+
+
+
 
             </StackLayout>
+
+
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

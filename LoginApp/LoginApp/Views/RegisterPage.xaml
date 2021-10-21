@@ -7,16 +7,16 @@
         <StackLayout VerticalOptions="CenterAndExpand">
 
             <StackLayout VerticalOptions="Center">
-                <Label Text="Walibank" TextColor="Purple" HorizontalOptions="CenterAndExpand" FontSize="Title" FontAttributes="Bold"/>
-                <Label Text="Register Page"  TextColor="Purple" HorizontalOptions="CenterAndExpand" FontSize="Subtitle" FontAttributes="Bold"/>
+                <Label Text="Walibank" TextColor="#6503A6" HorizontalOptions="CenterAndExpand" FontSize="Title" FontAttributes="Bold"/>
+                <Label Text="Criar Conta"  TextColor="#6503A6" HorizontalOptions="CenterAndExpand" FontSize="Subtitle" FontAttributes="Bold"/>
 
 
                 <StackLayout VerticalOptions="CenterAndExpand" Padding="20">
 
-                    <Entry x:Name="Name" Placeholder="Nome Completo" PlaceholderColor="Purple"/>
-                    <Entry x:Name="Email" Placeholder="Email" PlaceholderColor="Purple" Keyboard="Email"/>
-                    <Entry x:Name="Password" Placeholder="Password" PlaceholderColor="Purple" IsPassword="True"/>
-                    <Button Text="Register" Clicked="Button_Clicked" BackgroundColor="Purple" TextColor="White"/>
+                    <Entry x:Name="Name" Placeholder="Nome Completo" PlaceholderColor="#6503A6"/>
+                    <Entry x:Name="Email" Placeholder="Email" PlaceholderColor="#6503A6" Keyboard="Email"/>
+                    <Entry x:Name="Password" Placeholder="Password" PlaceholderColor="#6503A6" IsPassword="True"/>
+                    <Button Text="Register" Clicked="Button_Clicked" BackgroundColor="#6503A6" TextColor="White"/>
 
 
                 </StackLayout>

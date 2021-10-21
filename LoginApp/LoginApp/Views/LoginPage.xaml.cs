@@ -22,7 +22,7 @@ namespace LoginApp.Views
         {
             InitializeComponent();
 
-             //Xamarin.Essentials.SecureStorage.Remove("user");
+            // Xamarin.Essentials.SecureStorage.Remove("user/saved");
 
 
         }
@@ -33,7 +33,7 @@ namespace LoginApp.Views
 
 
             user = await service.LoginAutomatic();
-            if(user == null)
+            if (user == null)
             {
                 //não tem conta salva
             }
@@ -46,7 +46,7 @@ namespace LoginApp.Views
         async void Button_Clicked(object sender, EventArgs e)
         {
             LoginInPage();
-           
+
         }
 
         public async void AutomaticLogin(User user)
@@ -56,13 +56,16 @@ namespace LoginApp.Views
 
             if (r == "Sucessful")
             {
-                await DisplayAlert("LOGIN", "Logado com sucesso", "OK");
-                App.Current.MainPage = new AccountsPage();
+                MenuManager.currentuser = user;
+                App.Current.MainPage = new NavigationPage(new AccountsPage()) { BarBackgroundColor = Color.FromHex("#6503A6") };
 
             }
-         
-        }
+            else if (r == "passwordworong")
+            {
+                await DisplayAlert("Erro", "Sua Senha foi Alterada e sua conta Deslogada!", "Ok");
+            }
 
+        }
 
 
 
@@ -74,23 +77,24 @@ namespace LoginApp.Views
             if (r == "Sucessful")
             {
                 await DisplayAlert("LOGIN", "Logado com sucesso", "OK");
+                User user = new User();
+                user = await service.GetThisUser(Email.Text, Password.Text);
 
 
 
                 if (LembrarUser.IsChecked)
                 {
-                    User user = new User();
 
-                    user = await service.GetThisUser(Email.Text, Password.Text);
-                    MenuManager.currentuser = user;
                     service.SaveUser(user);
+
                 }
 
 
 
 
 
-                App.Current.MainPage = new AccountsPage();
+                MenuManager.currentuser = user;
+                App.Current.MainPage = new NavigationPage(new AccountsPage()) { BarBackgroundColor = Color.FromHex("#6503A6") };
 
             }
             else if (r == "passwordworong")
@@ -109,15 +113,15 @@ namespace LoginApp.Views
 
         async void Button_Clicked_1(object sender, EventArgs e)
         {
-            NavigationPage page = new NavigationPage(new RegisterPage());
+            NavigationPage page = new NavigationPage(new RegisterPage()) { BarBackgroundColor = Color.FromHex("#6503A6") };
 
 
-            await Navigation.PushAsync(page);
-          
+            await Navigation.PushModalAsync(page);
+
 
         }
-        
 
-       
+
+
     }
 }
