@@ -56,7 +56,7 @@ namespace LoginApp.Services
 
             return result;
         }
-
+      
         public async Task<string> Register(string password,string Email)
         {
             //register

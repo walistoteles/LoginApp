@@ -26,45 +26,34 @@ namespace LoginApp.Views
 
         async void Button_Clicked(object sender, EventArgs e)
         {
-            string r = await service.Login(Password.Text, Email.Text);
 
-            if(r == "Sucessful")
             {
-                // logado
-                DisplayAlert("Login", "Login Feito com Sucesso", "Ok");
-            }
 
-            if (r == "passwordworong")
-            {
-                // senha errada
-                DisplayAlert("Error", "Dados Incorretos", "Ok");
+                {
 
-            }
+                        break;
+                    }
 
-            if (r== "nothingdata")
             {
                 //sem dados
                 DisplayAlert("Error", "Dados não foram Encontrados", "Ok");
 
+                json = "nothing yet";
             }
+
+
+
+
         }
 
 
         async void Button_Clicked_1(object sender, EventArgs e)
         {
-            string r = await service.Register(Password.Text, Email.Text);
 
-
-            if(r == "Sucess")
             {
-                DisplayAlert("Registrado", "Conta Registrada", "Ok");
             }
+          
 
-            if (r == "existaccount")
-            {
-                DisplayAlert("Error", "Conta Já Existe", "Ok");
-
-            }
         }
     }
 }
