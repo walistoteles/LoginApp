@@ -147,6 +147,56 @@ namespace LoginApp.Services
         }
 
 
+        public async void SaveUser(User user)
+        {
+            List<User> users = new List<User>();
 
+            string r = await Xamarin.Essentials.SecureStorage.GetAsync("user/saved");
+
+            if (string.IsNullOrEmpty(r))
+            {
+                users.Add(user);
+
+                string response = JsonConvert.SerializeObject(users);
+
+                await Xamarin.Essentials.SecureStorage.SetAsync("user/saved",response);
+
+                return;
+            }
+            else
+            {
+                users =  JsonConvert.DeserializeObject<List<User>>(r);
+
+                users.Add(user);
+                return;
+
+            }
+
+
+
+        }
+
+        public async Task<User> LoginAutomatic()
+        {
+
+
+            string response = await Xamarin.Essentials.SecureStorage.GetAsync("user/saved");
+
+            if (string.IsNullOrEmpty(response))
+            {
+                return null;
+            }
+            else
+            {
+                User user = new User();
+                List<User> users = new List<User>();
+                users = JsonConvert.DeserializeObject<List<User>>(response);
+                user = users[0];
+
+                return user;
+            }
+
+
+        }
     }
 }

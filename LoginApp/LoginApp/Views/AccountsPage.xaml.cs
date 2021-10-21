@@ -39,5 +39,9 @@ namespace LoginApp.Views
             string Message = "Seja Bem Vindo";
         }
 
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

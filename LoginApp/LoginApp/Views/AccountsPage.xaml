@@ -4,7 +4,13 @@
              x:Class="LoginApp.Views.AccountsPage" BackgroundColor="Purple">
     <ContentPage.Content>
         <ScrollView>
-            
+
+            <StackLayout>
+
+                <Label x:Name="Title" Text="{Binding Message}" TextColor="Purple" FontSize="Subtitle"/>
+                <Button Text="Minhas Contas" Clicked="Button_Clicked"/>
+
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
