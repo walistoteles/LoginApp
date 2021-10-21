@@ -11,7 +11,7 @@ namespace LoginApp
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage(new LoginPage()) { BarBackgroundColor = Color.Purple};
         }
 
         protected override void OnStart()

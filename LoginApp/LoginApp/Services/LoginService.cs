@@ -30,23 +30,23 @@ namespace LoginApp.Services
 
                 for (int i = 0; i < user.Count; i++)
                 {
-                    if (password == user[i].password)
+                    if (password == user[i].Password)
                     {
                         //senha correta!
 
                         result = "Sucessful";
 
-                        break;
+                        return result;
                       
                     }
 
-
-
-                    //senha incorreta!
-                    result =  "passwordworong";
-                    return result;
-
                 }
+
+
+
+                //senha incorreta!
+                result = "passwordworong";
+                return result;
             }
             catch
             {
@@ -57,7 +57,7 @@ namespace LoginApp.Services
             return result;
         }
       
-        public async Task<string> Register(string password,string Email)
+        public async Task<string> Register(string password,string Email, string Nome)
         {
             //register
             string r = "";
@@ -77,12 +77,13 @@ namespace LoginApp.Services
 
 
 
-            user.password = password;
-            user.email = Email;
+            user.Password = password;
+            user.Email = Email;
+            user.Name = Nome;
 
             for (int i = 0; i < userlist.Count; i++)
             {
-                if(userlist[i].email == user.email)
+                if(userlist[i].Email == user.Email)
                 {
                     //EMAIL JÁ EXISTE
                     r = "existaccount";
@@ -106,6 +107,18 @@ namespace LoginApp.Services
             return r;
         }
 
+
+
+        public async Task<List<User>> GetUsers()
+        {
+            List<User> users = new List<User>();
+
+            string r = await Xamarin.Essentials.SecureStorage.GetAsync("user");
+
+            users = JsonConvert.DeserializeObject<List<User>>(r);
+
+            return  users;
+        }
 
 
 
