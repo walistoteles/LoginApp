@@ -27,8 +27,16 @@ namespace LoginApp.Views
         public async void GetUsers()
         {
             users = await service.GetUsers();
-            AccountList.ItemsSource = users;
+           
 
+        }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            string Message = "Seja Bem Vindo";
         }
 
     }

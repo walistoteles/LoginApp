@@ -121,6 +121,32 @@ namespace LoginApp.Services
         }
 
 
+        public async Task<User> GetThisUser(string Email, string Password)
+        {
+            User user = new User();
+            List<User> users = new List<User>();
+
+            string r = await Xamarin.Essentials.SecureStorage.GetAsync("user");
+
+            users = JsonConvert.DeserializeObject<List<User>>(r);
+
+            for (int i = 0; i < users.Count; i++)
+            {
+                if (Password == users[i].Password)
+                {
+                    //senha correta!
+
+                    user = users[i];
+
+                    return user;
+
+                }
+            }
+
+            return null;
+        }
+
+
 
     }
 }
