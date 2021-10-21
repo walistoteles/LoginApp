@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 namespace LoginApp.Services
 {
     public class LoginService
